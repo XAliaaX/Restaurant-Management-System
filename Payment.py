@@ -72,7 +72,3 @@ class Payment:
      print("Invalid card number.")
      return False
 
- #Testing
-#payment = Payment(1, order)
-
-#payment.choose_payment_method()

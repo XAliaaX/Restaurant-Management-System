@@ -10,10 +10,15 @@ class Menu:
     def __init__(self):
         self.menu = [
             MenuItem("Pizza", 245.67, "food"),
-            MenuItem("Burger", 120.98, "food"),
-            MenuItem("Coffee", 70.34, "drink"),
+            MenuItem("Burger", 179.98, "food"),
+            MenuItem("Coffee", 115.34, "drink"),
             MenuItem("Tea", 40.56, "drink", False),
             MenuItem("Seafood", 378.23, "food"),
+            MenuItem("Pasta", 169.99, "food"),
+            MenuItem("Soda", 25.50, "drink"),
+            MenuItem("Salad", 120.87, "food"),
+            MenuItem("Juice", 55.75, "drink"),
+            MenuItem("Ice Cream", 80.00, "food"),
         ]
 
     def add_to_menu(self):
@@ -24,7 +29,7 @@ class Menu:
                 price = float(input("Enter price: "))
                 break
             except ValueError:
-                print("Invalid price!, Enter a vaild number: ")
+                print("Invalid price!, Enter a valid number: ")
 
         while True:
             category = input("Enter category (food/drink): ").strip().lower()
@@ -45,7 +50,7 @@ class Menu:
                 print(f"{item.name} is removed!")
                 return
 
-        print("Item mot found")
+        print("Item not found")
 
     def search_for_item(self):
         name = input("Item to be searched: ").lower().strip()
@@ -54,7 +59,7 @@ class Menu:
             if item.name.lower() == name:
                 print(f"""
              Name: {item.name}
-             price: {item.price:.2f}EGP
+             price: {item.price:.2f} EGP
              Category: {item.category}
              Available: {item.availability}""")
                 return
@@ -66,7 +71,7 @@ class Menu:
         for item in self.menu:
             print(
                 f"Name: {item.name} - "
-                f"Price: {item.price} - "
+                f"Price: {item.price:.2f} EGP - "
                 f"Category: {item.category} - "
                 f"Available: {item.availability}"
             )
@@ -79,7 +84,7 @@ class Menu:
         for item in self.menu:
             if item.name.lower() == name:
                 while True:
-                    status = input("Choose Availability (True/False)").capitalize()
+                    status = input("Choose Availability (True/False):  ").capitalize()
                     if status in ["True", "False"]:
                         item.availability = status == "True"
                         print(f"Updated to {item.availability}")
@@ -110,7 +115,7 @@ class Menu:
               Enter your choice: """).strip()
 
             if choice == "6":
-                print("Thanks for using!")
+                print("Exiting Menu Management. Thank you!")
                 break
 
             action = actions.get(choice)

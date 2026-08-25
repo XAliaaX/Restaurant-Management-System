@@ -94,3 +94,30 @@ class Payment:
         print("Invalid card number.")
         return False
 
+    def generate_receipt(self):
+      print("\n================================")
+      print("            RECEIPT")
+      print("================================")
+
+      print(f"Order ID: {self.order.order_id}")
+      print(f"Payment ID: {self.payment_id}")
+
+      print("\nItems:")
+    
+      for item in self.order.items:
+         name = item[0]
+         price = item[1]
+         quantity = item[2]
+
+         subtotal = price * quantity
+
+         print(
+            f"{name} x {quantity} "
+            f"- {subtotal:.2f} EGP"
+         )
+
+      print("--------------------------------")
+      print(f"Total: {self.amount:.2f} EGP")
+      print(f"Payment Method: {self.payment_method}")
+      print(f"Payment Status: {self.status}")
+      print("================================")

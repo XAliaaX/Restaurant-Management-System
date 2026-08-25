@@ -54,7 +54,7 @@ class Menu:
             if item.name.lower() == name:
                 print(f"""
              Name: {item.name}
-             price: ${item.price:.2f}
+             price: {item.price:.2f}EGP
              Category: {item.category}
              Available: {item.availability}""")
                 return
@@ -98,13 +98,16 @@ class Menu:
         }
         while True:
             choice = input("""
-        --- What you want to do ? ---
-        1. Add to menu
-        2. Remove from the menu
-        3. Search in the menu
-        4. Display the menu
-        5. Change Availability
-        6. Exit  """).strip()
+              --- What do you want to do? ---
+
+                1. Add to menu
+                2. Remove from the menu
+                3. Search in the menu
+                4. Display the menu
+                5. Change Availability
+                6. Exit
+
+              Enter your choice: """).strip()
 
             if choice == "6":
                 print("Thanks for using!")
